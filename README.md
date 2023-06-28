@@ -16,16 +16,16 @@ The diagram above provides a visual representation of the project's architecture
 - `indexProcessed.csv`: Sample file containing data sources.
 
 ## AWS Services Used
-Amazon S3 (Simple Storage Service): Amazon S3 is used for storing the data streams consumed from Kafka. It provides a durable and scalable object storage solution.
+- `Amazon S3 (Simple Storage Service)`: Amazon S3 is used for storing the data streams consumed from Kafka. It provides a durable and scalable object storage solution.
 
-AWS Glue Crawler: AWS Glue Crawler is used to automate the process of discovering data and generating associated metadata. The crawler analyzes the data sources, 
+- `AWS Glue Crawler`: AWS Glue Crawler is used to automate the process of discovering data and generating associated metadata. The crawler analyzes the data sources, 
 such as files in S3, and extracts schemas, tables, partitions, and other structural information about the data. It keeps the metadata up-to-date and detects schema or 
 data changes.
 
-AWS Glue Catalog: AWS Glue Catalog acts as a centralized repository for storing the metadata of the discovered data. It stores information such as data schemas, tables, 
+- `AWS Glue Catalog`: AWS Glue Catalog acts as a centralized repository for storing the metadata of the discovered data. It stores information such as data schemas, tables, 
 partitions, relationships between tables, and more. The Glue Catalog provides a unified and organized view of the data in your AWS environment, making it easier to access
 , query, and analyze the data.
 
-Amazon Athena: Amazon Athena is used to query and analyze the data stored in S3 through the Glue Catalog. It allows you to run SQL queries on your data without the need
+- `Amazon Athena`: Amazon Athena is used to query and analyze the data stored in S3 through the Glue Catalog. It allows you to run SQL queries on your data without the need
 for managing infrastructure or setting up complex data pipelines.
   
