@@ -13,6 +13,7 @@ The diagram above provides a visual representation of the project's architecture
 - `architecture.png`: Architecture diagram of the project.
 - `consumer_kafka.ipynb`: Python script to consume data from a Kafka cluster.
 - `produce_kafka.ipynb`: Python script to produce data to a Kafka cluster.
+- Configuration_kafka.txt: File containing instructions for the installation and configuration of Apache Kafka.
 - `indexProcessed.csv`: Sample file containing data sources.
 
 ## AWS Services Used
