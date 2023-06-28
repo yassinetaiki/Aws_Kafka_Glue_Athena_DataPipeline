@@ -1,0 +1,36 @@
+# Télécharger Kafka
+wget https://downloads.apache.org/kafka/3.3.1/kafka_2.12-3.3.1.tgz
+tar -xvf kafka_2.12-3.3.1.tgz
+
+# Vérifier la version de Java et installer Java 8 si nécessaire
+java -version
+sudo yum install java-1.8.0-openjdk
+java -version
+# Accéder au répertoire Kafka
+cd kafka_2.12-3.3.1
+
+# Démarrer ZooKeeper
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+# Ouvrir une nouvelle fenêtre pour démarrer Kafka
+# Assurez-vous d'être connecté à votre instance EC2 via SSH
+
+# Démarrer Kafka Server
+export KAFKA_HEAP_OPTS="-Xmx256M -Xms128M"
+cd kafka_2.12-3.3.1
+bin/kafka-server-start.sh config/server.properties
+
+# Si Kafka pointe vers un serveur privé, modifiez server.properties pour utiliser une adresse IP publique
+# Vous pouvez suivre l'une des deux approches ci-dessous :
+# Utilisez "sudo nano config/server.properties" pour modifier ADVERTISED_LISTENERS avec l'adresse IP publique de votre instance EC2
+
+# Créer le topic
+cd kafka_2.12-3.3.1
+bin/kafka-topics.sh --create --topic demo_testing2 --bootstrap-server {IP publique instance EC2:9092} --replication-factor 1 --partitions 1
+
+# Démarrer le Producteur
+bin/kafka-console-producer.sh --topic demo_testing2 --bootstrap-server {IP publique instance EC2:9092}
+
+# Démarrer le Consommateur
+cd kafka_2.12-3.3.1
+bin/kafka-console-consumer.sh --topic demo_testing2 --bootstrap-server {IP publique instance EC2:9092}
